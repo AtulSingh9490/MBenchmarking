@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const port = 3000
+const port = process.env.PORT||3000
 const express = require('express')
 const app = express()
 
@@ -16,7 +16,7 @@ Countly.begin_session()
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.listen(port, () => console.log(`Benchmarking is listening on port ${port}!`))
+
 
 app.post('/metric', (req, res) => {
 
@@ -34,3 +34,8 @@ app.post('/metric', (req, res) => {
 app.get('/metric', (req, res) => {
     res.send('Benchmarking');
 });
+app.get('/', (req, res) => {
+    res.send('Welcome');
+});
+
+app.listen(port, () => console.log(`Benchmarking is listening on port ${port}!`))
