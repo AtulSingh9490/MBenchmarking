@@ -8,7 +8,7 @@ var Countly = require('countly-sdk-nodejs')
 
 Countly.init({
     app_key: '341db5ce6121d1d5ea9f69075cdf9897a35ecf37',
-    url: 'http://localhost:80',
+    url: 'https://mbenchmarking-countly.herokuapp.com',
     debug: true
 })
 Countly.begin_session()
